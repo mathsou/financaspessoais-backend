@@ -90,7 +90,7 @@ module.exports = {
             const cartoes = await connection('cartoes').where('id', '=', compras.cartao_id).select('diaF').first();
             console.log(compras.dataCompra.getMonth()) 
             var ano = compras.dataCompra.getFullYear()
-            var mes = compras.dataCompra.getMonth()
+            var mes = compras.dataCompra.getMonth()+1
             var dia = compras.dataCompra.getDate()
             
             for(i=0; i<parseInt(compras.numParcelas); i++){
