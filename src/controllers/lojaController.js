@@ -2,7 +2,7 @@ const connection = require('../database/connection');
 
 module.exports = {
     async index(request, response){
-        const loja = await connection('lojas').select('*');
+        const loja = await connection('lojas').select('*').orderBy('nome');
         return response.json(loja);
     },
     async create(request, response){
