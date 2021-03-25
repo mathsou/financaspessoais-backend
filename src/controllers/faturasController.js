@@ -88,9 +88,10 @@ module.exports = {
             .first();
 
             const cartoes = await connection('cartoes').where('id', '=', compras.cartao_id).select('diaF').first();
-            var ano = parseInt(compras.dataCompra.slice(0, 4))
-            var mes = parseInt(compras.dataCompra.slice(5, 7))
-            var dia = parseInt(compras.dataCompra.slice(8))
+            console.log(compras.dataCompra.getMonth()) 
+            var ano = compras.dataCompra.getFullYear()
+            var mes = compras.dataCompra.getMonth()
+            var dia = compras.dataCompra.getDate()
             
             for(i=0; i<parseInt(compras.numParcelas); i++){
                 if(i==0 && dia>=cartoes.diaF){
@@ -101,6 +102,14 @@ module.exports = {
                     mes = 1;
                     ano++
                 }
+                console.log(ano, 
+                            mes,
+                            parseFloat(compras.valorParcelas),
+                            parseInt(compras.cartao_id),
+                            parseInt(compras.id),
+                            parseInt(compras.diaF),
+                            parseInt(compras.diaV),
+                            )
                 await connection('faturas')
                     .insert({
                         ano: ano,
