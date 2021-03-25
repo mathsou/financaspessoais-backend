@@ -33,11 +33,9 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      url: 'mysql://po936gcs32lnhvmh:q5u2c0nhxsokw8vm@g84t6zfpijzwx08q.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/kyjo5klwk6ih6tw5'
     },
     pool: {
       min: 2,
