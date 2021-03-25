@@ -14,7 +14,7 @@ module.exports = {
     },
     async create (request, response){
         const {userName, nome, email, senha, salarioB} = request.body;
-        const tipoUser_id = 1;
+        const tipoUser_id = 2;
         const id = crypto.randomBytes(8).toString('hex');
         await connection('usuarios').insert({
             id,
